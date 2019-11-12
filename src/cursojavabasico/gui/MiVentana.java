@@ -177,9 +177,11 @@ public class MiVentana extends javax.swing.JFrame {
         int numB = Integer.parseInt(b);
         
         if(numA == numB){
-            JOptionPane.showMessageDialog(this, "Los numeros son iguales");
+            JOptionPane.
+            showMessageDialog(this, "Los numeros son iguales");
         }else{
-            JOptionPane.showMessageDialog(this, "Los numeros no son iguales");
+            JOptionPane.
+            showMessageDialog(this, "Los numeros no son iguales");
         }
         
     }//GEN-LAST:event_btnIgualesActionPerformed
