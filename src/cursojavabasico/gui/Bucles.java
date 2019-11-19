@@ -6,6 +6,7 @@
 package cursojavabasico.gui;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,6 +53,7 @@ public class Bucles extends javax.swing.JFrame {
         btnEntre = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +98,13 @@ public class Bucles extends javax.swing.JFrame {
             }
         });
 
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,7 +125,8 @@ public class Bucles extends javax.swing.JFrame {
                             .addComponent(btnEntre)
                             .addComponent(jButton3)
                             .addComponent(btnInicio)
-                            .addComponent(btnAgregar)))
+                            .addComponent(btnAgregar)
+                            .addComponent(btnBuscar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addComponent(jLabel1)))
@@ -141,7 +151,9 @@ public class Bucles extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnInicio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEntre))
+                        .addComponent(btnEntre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -191,6 +203,50 @@ public class Bucles extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEntreActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        int n;//tope
+        int i;//contador
+        int pos=-1;//el indice del elemento
+        //si pos == -1 el elemento no existe en la lista
+        //estructura repetitiva
+        String dato = this.txtMarca.getText();
+        //for
+        n = this.model.size();
+        for(i=0;i<n;i++){
+            System.out.println(this.model.get(i).toString());
+            if(this.model.get(i).
+                    toString().
+                    compareTo(dato)==0){
+                pos = i;
+            }
+        }
+        
+        if(pos == -1){
+            //elemento no encontrado
+            JOptionPane.showMessageDialog(this,"elemento no encontrado");
+        }else{
+            //elemento encontrado
+            JOptionPane.showMessageDialog(this,"elemento encontrado: "+
+                    this.model.get(pos).toString());
+        }
+        
+        //while
+        /*i=0;
+        while(i<n){
+            System.out.println(this.model.get(i).toString());
+            i = i + 1;
+        }*/
+        
+        //do while
+        /*i = 0;
+        do{
+            System.out.println(this.model.get(i).toString());
+            i = i + 1; 
+        }while(i<n);*/
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -228,6 +284,7 @@ public class Bucles extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEntre;
     private javax.swing.JButton btnInicio;
